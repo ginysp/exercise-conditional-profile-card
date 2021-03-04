@@ -27,14 +27,17 @@ function render(variables = {}) {
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
-  if (variables.includeCover == false) cover = "<div class='cover'></div>";
+    if (variables.includeCover == false) cover = "<div class='cover'></div>";
+    if (variables.name === null) variables.name = "Name";
+    if (variables.lastname === null) variables.lastname = "Last Name";
+    if (variables.role === null) variables.role = "Role";
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
+          <h1>"${variables.name} ${variables.lastname}"</h1>
+          <h2>"${variables.role}"</h2>
           <h3>Miami, USA</h3>
           <ul class="position-right">
             <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
