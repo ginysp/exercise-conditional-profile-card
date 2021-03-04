@@ -35,7 +35,14 @@ function render(variables = {}) {
   if (variables.country === null) variables.country = "Country";
   if (variables.socialMediaPosition === null)
     variables.socialMediaPosition = "left";
-  if (variables.twitter === null || variables.twitter === "") variables.twitter = "Twitter";
+  if (variables.twitter === null || variables.twitter === "")
+    variables.twitter = "Twitter";
+  if (variables.github === null || variables.github === "")
+    variables.github = "GitHub";
+  if (variables.linkedin === null || variables.linkedin === "")
+    variables.linkedin = "linkedin";
+  if (variables.instagram === null || variables.instagram === "")
+    variables.instagram = "instagram";
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
@@ -44,10 +51,10 @@ function render(variables = {}) {
           <h2>"${variables.role}"</h2>
           <h3>"${variables.city}", "${variables.country}"</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/"${variables.twitter}""><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${variables.twitter}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${variables.linkedin}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${variables.instagram}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
